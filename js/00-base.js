@@ -17,5 +17,23 @@ true; // булевий літерал
 Інструкція в JavaScript - це команда, яку браузер виконує. Інструкції зазвичай завершуються крапкою з комою (;), хоча це не обов'язково. Інструкції можуть бути простими або складними. Наприклад:
 */
 
+5 + 5;
 let a = 5; // Проста інструкція
 //!===============================================================
+
+// awdahefjygawyjdgajwygajwygdawdawdaw
+
+/* 
+awdawdawd
+awdawdawdaw
+awdawdawdawd
+awdawdawdawd
+*/
+
+// console.log(25);
+// console.log(30);
+// console.log(35);
+// console.log(40);
+
+// console.log('Hello world');
+// console.log(10 + 10 + 10);
