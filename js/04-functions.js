@@ -117,22 +117,54 @@
 
 //!===============================================================
 
-function foo1() {
-  console.log('foo1');
-}
+// function foo1() {
+//   console.log('start foo1');
+//   foo2();
+//   console.log('end foo1');
+// }
 
-function foo2() {
-  console.log('foo2');
-}
+// function foo2() {
+//   console.log('start foo2');
+//   foo3();
+//   console.log('end foo2');
+// }
 
-function foo3() {
-  console.log('foo2');
-}
+// function foo3() {
+//   console.log('start foo3');
+//   console.log('end foo3');
+// }
 
-console.log('Hello');
-foo1();
-foo3();
-console.log('test2');
-foo1();
-foo2();
-console.log('the end');
+// console.log('Hello');
+// foo1();
+// foo3();
+// console.log('test2');
+// foo1();
+// foo2();
+// console.log('the end');
+
+//!===============================================================
+
+// function foo1(i) {
+//   console.log(i);
+//   foo1(i + 1);
+// }
+
+// foo1(0);
+
+//!===============================================================
+// const x = 0;
+
+// function sayHello(username) {
+//   x = 10;
+//   console.log(username, x);
+// }
+
+// function sayHello1(username) {
+//   const x = 20;
+//   console.log(username, x);
+// }
+
+// // debugger;
+// console.log('Hello');
+// sayHello('Test');
+// console.log('end');
