@@ -4,11 +4,31 @@
  * то виводь рядок "14 г.", без хвилин.
  */
 
-const hours = 14;
-const minutes = 26;
-let timestring;
+// const hours = 14;
+// const minutes = 0;
+// let timestring;
 
-console.log(timestring);
+// if (minutes === 0) {
+//   timestring = `${hours} г.`;
+// } else {
+//   timestring = `${hours} г. ${minutes} хв.`;
+// }
+
+// console.log(timestring);
+
+/**
+ * Напиши скрипт для перевірки першої літери слова
+ * Дана строка яка складається з символів "qwerty"
+ * Перевірте що першим символом є буква "q".
+ * Якщо це так, то виведіть - Так, якщо ні, то виведіть Ні
+ */
+// const word = 'qwerty';
+
+// if (word[0] === 'q') {
+//   console.log('Yes');
+// } else {
+//   console.log('No');
+// }
 
 /**
  * Напиши скрипт для відображення часу дедлайну здачі проекту. Використовуй if...else.
@@ -19,4 +39,16 @@ console.log(timestring);
  * Якщо до дедлайну 3+ днів - виведи рядок "Date in the future"
  */
 
-const daysUntilDeadline = 5;
+const daysUntilDeadline = -5;
+
+if (daysUntilDeadline === 0) {
+  console.log('Today');
+} else if (daysUntilDeadline === 1) {
+  console.log('Tomorrow');
+} else if (daysUntilDeadline === 2) {
+  console.log('Overmorrow');
+} else if (daysUntilDeadline >= 3) {
+  console.log('Date in the future');
+} else {
+  console.log("Enter positive num");
+}
