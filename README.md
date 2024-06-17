@@ -4,6 +4,7 @@
 
 2. Розберемо методи рядків (практика 01-methods.js)
 
+- [Cheat Sheet](https://dev.to/devsmitra/javascript-string-methods-a-cheat-sheet-for-developer-4kbk)
 - Метод slice
 - Метод toLowerCase/toUpperCase
 - Метод includes
