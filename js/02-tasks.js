@@ -7,9 +7,13 @@
  * Використовуй конструкцію if...else.
  */
 
-let link = "https://my-site.com/about";
-console.log(link);
+// let link = 'https://my-site.com/about';
+// if (!link.endsWith('/')) {
+//   link += '/';
+// }
+// console.log(link);
 
+//!===============================================
 /**
  * Форматування посилання (includes та логічне «І»)
  * Напиши скрипт який перевіряє чи закінчується значення
@@ -19,17 +23,43 @@ console.log(link);
  * Використовуй конструкцію if...else або тернарний оператор.
  */
 
-let url = "https://somesite.com/about";
-console.log(url);
+// let url = 'https://my-site.com/about';
+// const firstCondition = !url.endsWith('/');
+// const secondCondition = url.includes('my-site');
+// const isValid = firstCondition && secondCondition;
 
+// if (isValid) {
+//   url += '/';
+// }
+
+// console.log(url);
+
+//!=================================================
 /*
  * Пошук у рядку методом includes()
  */
 
-const blacklistedWord1 = "spam";
-const blacklistedWord2 = "sale";
+// const banWord1 = 'spam';
+// const banWord2 = 'sale';
 
-const string1 =
-  "Hello, I'm Prince Abdul, this is not spam, I'm offering you a million!";
-const string2 = "Biggest SALE this week, don't miss out!";
-const string3 = "#fatlivesmatter advertising campaign";
+// const string1 =
+//   "Hello, I'm Prince Abdul, this is not spam, I'm offering you a million!";
+// const string2 = "Biggest SALE this week, don't miss out!";
+// const string3 = '#fatlivesalematter advertising campaign';
+
+// const lowerStr1 = string1.toLowerCase();
+// const hasFirstBanWord = lowerStr1.includes(banWord1);
+// const hasSecondBanWord = lowerStr1.includes(banWord2);
+// const hasSpam1 = hasFirstBanWord || hasSecondBanWord;
+
+// const hasSpam2 =
+//   string2.toLowerCase().includes(banWord1) ||
+//   string2.toLowerCase().includes(banWord2);
+
+// const hasSpam3 =
+//   string3.toLowerCase().includes(banWord1) ||
+//   string3.toLowerCase().includes(banWord2);
+
+// console.log(hasSpam3);
+
+//!===============================================================
