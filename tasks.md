@@ -360,7 +360,7 @@ console.log('orange' || '');
 console.log('' && 'banana');
 console.log('grape' && '');
 
-console.log(0 || false);
+console.log(0 || false || false); //false
 console.log(false || 0);
 console.log(1 && 'cherry');
 console.log('banana' && 1);
