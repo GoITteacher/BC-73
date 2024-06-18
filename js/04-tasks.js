@@ -74,3 +74,126 @@
 // }
 
 // factorial(6);
+
+//!===============================================================
+
+// 1. Напиши цикл, який виведе кожну другу літеру рядочку "Hello worldt"
+
+// function task10(str) {
+//   for (let i = 1; i < str.length; i += 2) {
+//     console.log(str[i]);
+//   }
+// }
+
+// task10('Hello worldt');
+
+// 1. Напиши цикл, який виведе кожну літеру рядочку "Hello world" у зворотньому
+//    порядку.
+// 1. Напиши функцію, яка приймає рядок та повертає перевернутий рядок
+// function reverse(str) {
+//   debugger;
+//   let result = '';
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     result += str[i];
+//   }
+//   return result;
+// }
+
+// console.log(reverse('Hello World'));
+
+// 1. Напиши цикл, який виведе кожну літеру рядочку "Hello world" поки не зустріне
+//    пробіл.
+
+function task11(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') break;
+    console.log(str[i]);
+  }
+}
+
+// 1. Напиши цикл, який виведе на консоль кожну другу літеру слова "JavaScript".
+
+// const str = 'JavaScript';
+// for (let i = 0; i < str.length; i += 2) {
+//   console.log(str[i]);
+// }
+
+// 1. Напиши функцію, яка приймає рядок та повертає рядок де кожен другий символ у
+//    верхньому регістрі
+
+// function myConvert(str) {
+//   let result = '';
+//   for (let i = 0; i < str.length; i++) {
+//     if (i % 2 === 0) {
+//       result += str[i].toLowerCase();
+//     } else {
+//       result += str[i].toUpperCase();
+//     }
+//   }
+//   console.log(result);
+// }
+
+// myConvert('Javascript');
+
+// function myConvert2(str) {
+//   let result = '';
+
+//   for (let i = 0; i < str.length; i++) {
+//     if (str.charCodeAt(i) > 90) {
+//       result += str[i].toUpperCase();
+//     } else {
+//       result += str[i].toLowerCase();
+//     }
+//   }
+
+//   console.log(result);
+// }
+
+// myConvert2('Hello World');
+
+// 1. Напиши функцію getString(str1, str2, count). Функція повинна додати str2 до
+//    рядочка str1 стільки разів скільки вказали у параметрі count.
+
+// function getString(str1, str2, count) {
+//   let result = str1;
+
+//   for (let i = 0; i < count; i++) {
+//     result += str2;
+//   }
+
+//   console.log(result);
+// }
+
+// getString('Hello', '!', 10);
+
+//!======================================================
+
+// function test(len) {
+//   let str = '';
+
+//   for (let i = 0; i < len; i++) {
+//     for (let j = 0; j < len; j++) {
+//       const isFirstCol = j === 0;
+//       const isLastCol = j === len - 1;
+//       const isFirstRow = i === 0;
+//       const isLastRow = i === len - 1;
+
+//       const isDiagonal = i === j;
+
+//       const isEvenCol = j % 2 === 0;
+
+//       const fill = isFirstCol || isLastCol || isFirstRow || isLastRow;
+
+//       if (fill) str += '#';
+//       else if (isDiagonal) str += '0';
+//       else if (isEvenCol) str += '|';
+//       else str += ' ';
+//     }
+
+//     str += '\n';
+//   }
+
+//   console.log(str);
+// }
+
+// test(20);
