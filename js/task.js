@@ -141,3 +141,26 @@ console.log(task8('hello'));
 // //!===============================================================
 // Задача-30
 // Напишіть функцію, яка приймає число num. Функція повинна повернути булеве значення true, якщо num є кратним 10. В іншому випадку функція повинна повернути булеве значення false.
+
+//!===============================================================
+
+function cockroachSpeed(s) {
+  const res = Math.floor((s * 1000) / 36);
+  return res;
+}
+
+// 2pR => R
+
+// function squareArea(A) {
+//   const len = A * 4;
+//   const r = len / 2 / Math.PI;
+//   const area = Math.PI * r ** 2;
+//   return area;
+// }
+
+function past(h, m, s) {
+  const secInHour = 3600;
+  const secInMinute = 60;
+  const res = h * secInHour + m * secInMinute + s;
+  return res * 1000;
+}
