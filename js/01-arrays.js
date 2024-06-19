@@ -9,18 +9,39 @@
  * - Перевизначення
  */
 
-const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
-console.table(courses);
-console.log([0]);
-console.log([1]);
-console.log([2]);
-console.log([3]);
+/* 
+- string
+- number
+- boolean
+- undefined
+*/
 
-courses[1] = "Jacob";
-courses[3] = "Adrian";
-console.table(courses);
+/* 
+- array
+- object
+*/
 
-console.log(courses.length);
+// const salaries = [10, 20, 30, 40, 50, 60, 70, 80];
 
-const lastIndex = courses.length - 1;
-console.log(lastIndex);
+// salaries[0]
+
+// const users = ['Vasya', 'Petya', 'Kolya'];
+
+// const arr = [1, 3, 5];
+// arr[15] = 'Hello';
+// console.log(arr);
+
+//!======================================================
+// const courses = ['HTML', 'CSS', 'TEST', 'JavaScript', 'React'];
+// console.table(courses);
+// console.log(userList[0]);
+
+// courses[1] = 'Jacob';
+// courses[3] = 'Adrian';
+
+// console.table(courses);
+
+// console.log(courses.length);
+
+// const lastElem = courses[courses.length - 1];
+// console.log(lastElem);
