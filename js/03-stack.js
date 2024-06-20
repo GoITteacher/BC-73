@@ -3,26 +3,34 @@
  * - Порядок виконання
  */
 
-function fnA() {
-  console.log("fnA execution");
-}
+// function test1() {
+//   console.log('помити картоплю');
+//   console.log('почистити картоплю');
+// }
 
-function fnB() {
-  console.log("fnB execution");
-}
+// function test2() {
+//   console.log('помити мясо');
+//   console.log('приготувати мясо');
+// }
 
-function fnC() {
-  console.log("fnC execution");
-}
+// function foo1() {
+//   console.log('Почав готувати борщ');
+//   test1();
+//   test2();
+//   console.log('Завершив готувати борщ');
+// }
 
-console.log("Before fnA execution");
-fnA();
-console.log("After fnA execution");
+// function foo2() {
+//   console.log('Почав готувати смажену картоплю');
+//   test1();
+//   console.log('Завершив готувати смажену картоплю');
+// }
 
-console.log("Before fnB execution");
-fnB();
-console.log("After fnB execution");
+// function foo3() {
+//   console.log('Почав готувати каву');
+//   console.log('Завершив готувати каву');
+// }
 
-console.log("Before fnC execution");
-fnC();
-console.log("After fnC execution");
+// foo1();
+// foo2();
+// foo3();
