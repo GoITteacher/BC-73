@@ -975,3 +975,7 @@ const usersInfo = [
     },
   },
 ];
+
+function sayHello() {
+  console.log('hello world');
+}

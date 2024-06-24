@@ -3,6 +3,39 @@
   Personal bodyguard
 */
 
+const bodyguard = {
+  blacklist: [],
+  addToBL(username) {
+    this.blacklist.push(username);
+  },
+  removeFromBL(username) {
+    for (let i = 0; i < this.blacklist.length; i++) {
+      if (this.blacklist[i] === username) {
+        this.blacklist.splice(i, 1);
+        break;
+      }
+    }
+  },
+  checkInBL(username) {
+    return this.blacklist.includes(username);
+  },
+};
+
+console.log(bodyguard);
+
+bodyguard.addToBL('Roman');
+bodyguard.addToBL('Vasya');
+bodyguard.addToBL('Kolya');
+
+console.log(bodyguard);
+
+bodyguard.removeFromBL('Kolya');
+
+console.log(bodyguard.checkInBL('Kolya'));
+console.log(bodyguard.checkInBL('Vasya'));
+
+//!======================================================
+
 //!======================================================
 /*
  * Типів транзакцій всього два.
