@@ -5,43 +5,100 @@
  * - Повертає новий масив такої ж довжини
  */
 
+//!======================================================
+
+// const nums = [1, 5, 132, 5, 1, 2, 4, 5, 1];
+
+// const res = nums.map((el, i) => {
+//   return el * 2;
+// });
+
+// console.log(res);
+/* 
+const result = [2,10,264,10,2,4,8,10,2];
+callback(1,0)->2
+callback(5,1)->10
+callback(132,2)->0
+callback(5,3)->0
+*/
+
+//!======================================================
 const allCars = [
-  { make: "Honda", model: "CR-V", amount: 14, price: 24045 },
-  { make: "Honda", model: "Accord", amount: 2, price: 22455 },
-  { make: "Mazda", model: "Mazda 6", amount: 8, price: 24195 },
-  { make: "Mazda", model: "CX-9", amount: 7, price: 31520 },
-  { make: "Toyota", model: "4Runner", amount: 19, price: 34210 },
-  { make: "Toyota", model: "Sequoia", amount: 16, price: 45560 },
-  { make: "Toyota", model: "Tacoma", amount: 4, price: 24320 },
-  { make: "Ford", model: "F-150", amount: 11, price: 27110 },
-  { make: "Ford", model: "Fusion", amount: 13, price: 22120 },
-  { make: "Ford", model: "Explorer", amount: 6, price: 31660 },
+  { make: 'Honda', model: 'CR-V', amount: 14, price: 24045 },
+  { make: 'Honda', model: 'Accord', amount: 2, price: 22455 },
+  { make: 'Mazda', model: '6', amount: 8, price: 24195 },
+  { make: 'Mazda', model: 'CX-9', amount: 7, price: 31520 },
+  { make: 'Toyota', model: '4Runner', amount: 19, price: 34210 },
+  { make: 'Toyota', model: 'Sequoia', amount: 16, price: 45560 },
+  { make: 'Toyota', model: 'Tacoma', amount: 4, price: 24320 },
+  { make: 'Ford', model: 'F-150', amount: 11, price: 27110 },
+  { make: 'Ford', model: 'Fusion', amount: 13, price: 22120 },
+  { make: 'Ford', model: 'Explorer', amount: 6, price: 31660 },
 ];
 
+// const models = allCars.map((car, i) => {
+//   return car.model;
+// });
+
+// const res = allCars.map((car, i) => {
+//   return `${car.make} ${car.model}`;
+// });
+
+// const res = allCars.map(car => car.price > 25000);
+// const res = allCars.map(car => car.model);
+// const res = allCars.map(car => car.amount);
+// const res = allCars.map(car => `${car.make} ${car.model}`);
+
+// console.log(res);
+
+// const markup = allCars
+//   .map(car => {
+//     return `<li class="item">
+//     <h3>${car.make} ${car.model}</h3>
+//     <div>
+//       <p>Amount: ${car.amount}</p>
+//       <p>Price: ${car.price}</p>
+//     </div>
+//   </li>`;
+//   })
+//   .join('\n');
+
+// console.log(markup);
+
+//!======================================================
 /**
  * Нехай функція getModels повертає масив моделей (поле model) всіх автомобілів.
  */
 
-const getModels = (cars) => {};
+// const getModels = cars => {
+//   return cars.map(car => car.model);
+// };
 
-console.table(getModels(allCars));
+// console.table(getModels(allCars));
 
+//!======================================================
 /**
  * Нехай функція makeCarsWithDiscount повертає новий масив об'єктів із змінним
  * значенням властивості price залежно від переданої знижки.
  */
 
-const makeCarsWithDiscount = (cars, discount) => {};
+// const makeCarsWithDiscount = (cars, discount) => {
+//   return cars.map(car => {
+//     const copy = { ...car };
+//     copy.price = car.price * (1 - discount);
+//     return copy;
+//   });
+// };
 
-console.table(makeCarsWithDiscount(allCars, 0.2));
-console.table(makeCarsWithDiscount(allCars, 0.4));
+// console.table(makeCarsWithDiscount(allCars, 0.2));
+// console.table(makeCarsWithDiscount(allCars, 0.4));
 
 const players = [
-  { id: "player-1", name: "Mango", timePlayed: 310, points: 54, online: false },
-  { id: "player-2", name: "Poly", timePlayed: 470, points: 92, online: true },
-  { id: "player-3", name: "Kiwi", timePlayed: 230, points: 48, online: true },
-  { id: "player-4", name: "Ajax", timePlayed: 150, points: 71, online: false },
-  { id: "player-5", name: "Chelsy", timePlayed: 80, points: 48, online: true },
+  { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false },
+  { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true },
+  { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true },
+  { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false },
+  { id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true },
 ];
 console.table(players);
 
@@ -49,8 +106,14 @@ console.table(players);
  * Збільшуємо кількість годин гравця за id
  */
 
-const playerIdToUpdate = "player-3";
+const playerIdToUpdate = 'player-3';
 
-const updatedPlayers = players.map((player) => {});
+const updatedPlayers = players.map(player => {
+  const copy = { ...player };
+  if (player.id === playerIdToUpdate) {
+    copy.timePlayed += 10;
+  }
+  return copy;
+});
 
 console.log(updatedPlayers);
