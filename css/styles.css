@@ -38,14 +38,29 @@ body {
   color: tomato;
 }
 
-.color-picker__option {
-  display: inline-block;
-  width: 64px;
-  height: 64px;
+.color-item {
+  display: flex;
   margin: 4px;
-  border: none;
-  outline: none;
+  border: 1px solid black;
+  border-radius: 10px;
   cursor: pointer;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  gap: 5px;
+}
+
+.color-item p {
+  margin: 0;
+  padding: 0;
+}
+.color-picker__option {
+  width: 100px;
+  height: 60px;
+  border-radius: 10px;
 }
 
 .transaction-table {
@@ -73,4 +88,33 @@ body {
 
 .deposit {
   background-color: rgba(157, 255, 157, 0.429);
+}
+
+.color-picker {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.car-item {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid tomato;
+  background-color: rgb(223, 223, 223);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.car-item * {
+  margin: 0;
+  padding: 4px;
+  border-radius: 5px;
 }
