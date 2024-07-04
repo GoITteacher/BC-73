@@ -68,3 +68,22 @@ input {
   display: flex;
   flex-direction: column;
 }
+.box {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.valid {
+  border: 5px solid greenyellow;
+}
+.invalid {
+  border: 5px solid rgb(255, 47, 47);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}

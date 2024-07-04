@@ -163,5 +163,50 @@ const cars = [
 
 const refs = {
   form: document.querySelector('.js-form'),
-  container: document.querySelector('.js-list'),
+  carList: document.querySelector('.js-list'),
 };
+//!======================================================
+
+refs.form.addEventListener('submit', e => {
+  e.preventDefault();
+  const formData = new FormData(refs.form);
+
+  const title = formData.get('query');
+  const filterType = formData.get('type');
+
+  const filteredArr = cars.filter(car => {
+    const isValidTitle = car.title.includes(title);
+    const isValidType = filterType === 'all' || car.type === filterType;
+    return isValidTitle && isValidType;
+  });
+
+  renderCars(filteredArr);
+});
+
+//!======================================================/
+
+function carTemplate(car) {
+  return `<li class="car-item">
+  <img
+    src="https://toyota.com.ua/360/6/218/33.png"
+    alt=""
+  />
+  <div class="car-info">
+    <h3>${car.title}</h3>
+    <p>Type: ${car.type}</p>
+    <p>Price: ${car.price}$</p>
+  </div>
+</li>`;
+}
+
+function carsTemplate(arr) {
+  return arr.map(carTemplate).join('');
+}
+
+function renderCars(arr) {
+  const markup = carsTemplate(arr);
+  refs.carList.innerHTML = markup;
+}
+//!======================================================
+
+renderCars(cars);
