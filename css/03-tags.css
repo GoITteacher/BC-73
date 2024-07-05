@@ -55,3 +55,8 @@
   border: none;
   cursor: pointer;
 }
+
+.active {
+  background-color: rgb(212, 165, 230);
+  color: white;
+}

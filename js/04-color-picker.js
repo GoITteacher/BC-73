@@ -1,10 +1,10 @@
 let colorPalette = [];
-const LENGTH = 5;
+const LENGTH = 8;
 
 function createPaletteItems() {
   const items = [];
   for (let i = 0; i < LENGTH; i++) {
-    let hex = getRangomColor();
+    let hex = getRandomColor();
     let color = {
       hex,
       rgb: hexToRgb(hex),
@@ -16,7 +16,7 @@ function createPaletteItems() {
   colorPalette = [...items];
 }
 
-function getRangomColor() {
+function getRandomColor() {
   return `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
 }
 
@@ -34,7 +34,8 @@ function hexToRgb(hex) {
 }
 
 createPaletteItems();
-////////////////////////////////////////////////////////////////////////////
+console.log(colorPalette);
+//!======================================================
 
 const refs = {
   itemList: document.querySelector('.js-colors-box'),
@@ -43,17 +44,54 @@ const refs = {
   backdropElem: document.querySelector('.js-backdrop'),
 };
 
-////////////////////////////////////////////////////////////////////////////
+//!======================================================
 
-/* 
-nodeName
-<li class="color-item">
-    <button class="color-body" style="background-color:...;"></button>
-    <div class="color-footer">
-        <div>HEX: ....</div>
-        <div>RGB: ....</div>
-        <div></div>
-    </div>
-</li>
+function colorTemplate(color) {
+  return `<li class="color-item" data-color="${color.hex}">
+  <button class="color-body" style="background-color: ${color.hex}"></button>
+  <div class="color-footer">
+    <div>HEX: ${color.hex}</div>
+    <div>RGB: ${color.rgb}</div>
+    <div></div>
+  </div>
+</li>`;
+}
 
-*/
+function colorsTemplate(arr) {
+  return arr.map(colorTemplate).join('');
+}
+
+function renderColors() {
+  const markup = colorsTemplate(colorPalette);
+  refs.itemList.innerHTML = markup;
+}
+
+renderColors();
+//!======================================================
+
+refs.itemList.addEventListener('click', e => {
+  if (e.target === e.currentTarget) return;
+  const liElem = e.target.closest('li.color-item');
+  const color = liElem.dataset.color;
+  refs.modalElement.style.backgroundColor = color;
+  showModal();
+});
+
+refs.backdropElem.addEventListener('click', e => {
+  if (e.target === e.currentTarget) hideModal();
+});
+
+//!======================================================
+
+function showModal() {
+  document.body.classList.add('show-modal');
+  window.addEventListener('keydown', onModalClose);
+}
+function hideModal() {
+  document.body.classList.remove('show-modal');
+  window.removeEventListener('keydown', onModalClose);
+}
+function onModalClose(e) {
+  console.log(e.code);
+  if (e.code === 'Escape') hideModal();
+}

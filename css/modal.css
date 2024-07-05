@@ -23,8 +23,8 @@ body.show-modal .backdrop {
 
 .modal {
   padding: 24px;
-  width: 60vw;
-  height: 60vh;
+  width: 500px;
+  height: 800px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
