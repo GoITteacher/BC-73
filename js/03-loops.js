@@ -4,13 +4,13 @@
 
 const users = [
   {
-    name: "Kate",
+    name: 'Kate',
   },
   {
-    name: "Alex",
+    name: 'Alex',
   },
   {
-    name: "Mark",
+    name: 'Mark',
   },
 ];
 
