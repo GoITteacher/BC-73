@@ -1,8 +1,7 @@
-const mainMenu = `
-1. Користувачі
-2. Уроки
-3. Лекції
-4. Вийти
-`;
+function myFoo(mySupperArr) {
+  const x = mySupperArr.map(mySuperElement => {
+    return mySuperElement.toString();
+  });
 
-console.log(mainMenu);
+  console.log(x);
+}
