@@ -20,9 +20,12 @@
   },
   "devDependencies": {
     "glob": "^8.1.0",
-    "vite": "^4.0.5"
+    "vite": "^4.0.5",
+    "eslint": ""
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "basiclightbox": "^5.0.4",
     "simplelightbox": "^2.14.3",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"

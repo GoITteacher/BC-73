@@ -23,4 +23,23 @@ import * as myData from './test.js';
 
 //!======================================================
 
-import './header.js';
+// import './header.js';
+
+//!======================================================
+import { nanoid } from 'nanoid';
+import { faker } from '@faker-js/faker';
+
+// import SimpleLightbox from 'simplelightbox';
+// const lightbox = new SimpleLightbox('.gallery a', {
+//   /* options */
+// });
+
+// import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basiclightbox.min.css';
+
+// const instance = basicLightbox.create(`
+// 	<h1>Dynamic Content</h1>
+// 	<p>You can set the content of the lightbox with JS.</p>
+// `);
+
+// instance.show();
