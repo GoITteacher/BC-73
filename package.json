@@ -5,8 +5,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build --base=/test/",
-    "preview": "vite preview",
-    "push": "git add .; git commit -m 'update'; git push;"
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
