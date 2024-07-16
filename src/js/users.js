@@ -27,7 +27,7 @@ function templateUser({ id, name, email, phone, img }) {
   return `
   <li class="card user-item" data-id="${id}">
   <img
-    src="${img}"
+    src="https://picsum.photos/1280/720?random=${id}"
     alt="#"
     class="user-avatar"
   />

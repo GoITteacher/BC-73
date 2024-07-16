@@ -34,7 +34,7 @@ function templateBook({ id, title, desc, author, img, price, rating }) {
 <li class="book-item card" data-id="${id}">
   <img
     class="book-img"
-    src="${img}"
+    src="https://picsum.photos/1280/720?random=${id}"
     alt=""
   />
 
