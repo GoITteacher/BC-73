@@ -8,17 +8,33 @@ import './modules/user';
 
 // ====================================
 
-/* function getPostsByUser(userId) {
-  const BASE_URL = 'https://jsonplaceholder.typicode.com';
-  const END_POINT = '/posts';
-  const PARAMS = `?userId=${userId}`;
-  const url = BASE_URL + END_POINT + PARAMS;
+// function searchSuperhero(x1) {
+//   const BASE_URL = 'https://superhero-search.p.rapidapi.com';
+//   const END_POINT = '/api/';
 
-  const options = {
-    headers: {
-      test_header: 'Volodka',
-    },
-  };
+//   const params = new URLSearchParams({
+//     hero: x1,
+//   });
 
-  return fetch(url, options).then(res => res.json());
-} */
+//   const url = `${BASE_URL}${END_POINT}?${params}`;
+
+//   const headers = {
+//     'x-rapidapi-key': '9b3ff61931msh1b42d77d34e33dap1c29cajsn3d3169e0e2f4',
+//     'x-rapidapi-host': 'superhero-search.p.rapidapi.com',
+//   };
+
+//   return fetch(url, { headers }).then(res => res.json());
+// }
+
+// searchSuperhero('Spiderman').then(res => {
+//   console.log(res);
+// });
+// searchSuperhero('Superman').then(res => {
+//   console.log(res);
+// });
+// searchSuperhero('Batman').then(res => {
+//   console.log(res);
+// });
+// searchSuperhero('Hulk').then(res => {
+//   console.log(res);
+// });

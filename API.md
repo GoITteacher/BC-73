@@ -17,3 +17,5 @@
 1. [RICK and MORTY](https://rickandmortyapi.com/api/character/4)
 1. [QR CODE GENERATOR](https://rapidapi.com/flowcode/api/flowcode1/)
 1. [QR CODE GENERATOR 2](https://rapidapi.com/jsavajols/api/getqrcode/)
+
+1. [key](f6fe44fec7msh9f58de139869781p15408ajsn8e7b73b5d6b1)
