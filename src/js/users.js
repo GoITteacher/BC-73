@@ -24,32 +24,34 @@ refs.userListElem.addEventListener('click', onUserDelete);
 
 //!======================================================
 
-function onUserLoad() {
-  getUsers().then(users => {
+async function onUserLoad() {
+  try {
+    const users = await getUsers();
     const markup = usersTemplate(users);
     refs.userListElem.innerHTML = markup;
-  });
+  } catch {}
 }
 
 //? ==================================
 
-function onUserCreate(e) {
+async function onUserCreate(e) {
   e.preventDefault();
 
   const formData = new FormData(e.target);
 
   const user = Object.fromEntries(formData.entries());
 
-  createUser(user).then(result => {
+  try {
+    const result = await createUser(user);
     const markup = userTemplate(result);
     refs.userListElem.insertAdjacentHTML('afterbegin', markup);
-  });
+  } catch {}
 
   e.target.reset();
 }
 //? ==================================
 
-function onUserUpdate(e) {
+async function onUserUpdate(e) {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -57,47 +59,61 @@ function onUserUpdate(e) {
   const userData = Object.fromEntries(formData.entries());
   const user = parseUserParamsForUpdate(userData);
 
-  updateUser(user).then(result => {
+  try {
+    const result = await updateUser(user);
     const markup = userTemplate(result);
 
     const userElem = document.querySelector(`li[data-id="${user.id}"]`);
     userElem.insertAdjacentHTML('afterend', markup);
 
     userElem.remove();
-  });
+  } catch {}
 
   e.target.reset();
 }
 //? ==================================
 
-function onUserReset(e) {
+async function onUserReset(e) {
   e.preventDefault();
 
   const formData = new FormData(e.target);
 
   const user = Object.fromEntries(formData.entries());
 
+  /* 
   resetUser(user).then(result => {
     const markup = userTemplate(result);
-
     const userElem = document.querySelector(`li[data-id="${user.id}"]`);
     userElem.insertAdjacentHTML('afterend', markup);
-
     userElem.remove();
-  });
+  }); 
+  */
+
+  try {
+    const result = await resetUser(user);
+    const markup = userTemplate(result);
+    const userElem = document.querySelector(`li[data-id="${user.id}"]`);
+    userElem.insertAdjacentHTML('afterend', markup);
+    userElem.remove();
+  } catch {}
 
   e.target.reset();
 }
 //? ==================================
 
-function onUserDelete(e) {
+async function onUserDelete(e) {
   if (e.target.nodeName !== 'BUTTON') return;
   const liElem = e.target.closest('li');
   const id = liElem.dataset.id;
 
-  deleteUser(id).then(() => {
+  // deleteUser(id).then(() => {
+  //   liElem.remove();
+  // });
+
+  try {
+    await deleteUser(id);
     liElem.remove();
-  });
+  } catch {}
 }
 
 //!======================================================

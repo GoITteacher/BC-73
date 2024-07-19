@@ -1,90 +1,26 @@
-const BASE_URL = 'http://localhost:3000';
+import Axios from 'axios';
 
-export function getUsers() {
-  const END_POINT = '/users';
-  const url = BASE_URL + END_POINT;
+const axios = Axios.create({
+  baseURL: 'http://localhost:3000',
+});
 
-  return fetch(url).then(res => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error('Server Error');
-    }
-  });
+export async function getUsers() {
+  const res = await axios.get('/users');
+  return res.data;
 }
-export function createUser(user) {
-  const END_POINT = '/users';
-  const url = BASE_URL + END_POINT;
-
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(user),
-  };
-
-  return fetch(url, options).then(res => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error('Server Error');
-    }
-  });
+export async function createUser(user) {
+  const res = await axios.post('/users', user);
+  return res.data;
 }
-export function updateUser({ id, ...user }) {
-  const END_POINT = `/users/${id}`;
-  const url = BASE_URL + END_POINT;
-
-  const options = {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(user),
-  };
-
-  return fetch(url, options).then(res => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error('Server Error');
-    }
-  });
+export async function updateUser({ id, ...user }) {
+  const res = await axios.patch(`/users/${id}`, user);
+  return res.data;
 }
-export function resetUser({ id, ...user }) {
-  const END_POINT = `/users/${id}`;
-  const url = BASE_URL + END_POINT;
-
-  const options = {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(user),
-  };
-
-  return fetch(url, options).then(res => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error('Server Error');
-    }
-  });
+export async function resetUser({ id, ...user }) {
+  const res = await axios.put(`/users/${id}`, user);
+  return res.data;
 }
-export function deleteUser(id) {
-  const END_POINT = `/users/${id}`;
-  const url = BASE_URL + END_POINT;
-
-  const options = {
-    method: 'DELETE',
-  };
-
-  return fetch(url, options).then(res => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error('Server Error');
-    }
-  });
+export async function deleteUser(id) {
+  const res = await axios.delete(`/users/${id}`);
+  return res.data;
 }
