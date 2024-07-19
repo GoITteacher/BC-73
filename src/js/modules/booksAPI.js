@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+/* const BASE_URL = 'http://localhost:3000';
 
 export function getBooks() {
   const END_POINT = '/books';
@@ -66,4 +66,46 @@ export function deleteBook(id) {
   };
 
   return fetch(url, options);
+} */
+
+import Axios from 'axios';
+
+const axios = Axios.create({
+  baseURL: 'http://localhost:3000',
+});
+
+export async function getBooks() {
+  const res = await axios.get('/books');
+  return res.data;
 }
+export async function createBook(newBook) {
+  const res = await axios.post('/books', newBook);
+  return res.data;
+}
+export function updateBook({ id, ...book }) {
+  const res = axios.patch(`/books/${id}`, book);
+  return res.data;
+}
+export function resetBook({ id, ...bookData }) {
+  const res = axios.put(`/books/${id}`, bookData);
+  return res.data;
+}
+export function deleteBook(id) {
+  const res = axios.delete(`/books/${id}`);
+  return res;
+}
+
+// export async function test(newBook) {
+//   const res = await axios.request({
+//     url: '/user',
+//     method: 'get',
+//     baseURL: 'https://some-domain.com/api/',
+//     data: 'Hello world',
+//     headers: {
+//       'Content-Type': 'text',
+//     },
+//   });
+//   return res.data;
+// }
+
+function foo() {}

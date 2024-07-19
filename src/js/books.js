@@ -25,14 +25,17 @@ refs.deleteFormElem.addEventListener('submit', onBookDelete);
 
 //!======================================================
 
-function onBooksLoad() {
-  getBooks().then(books => {
+async function onBooksLoad() {
+  try {
+    const books = await getBooks();
     const markup = booksTemplate(books);
     refs.bookListElem.innerHTML = markup;
-  });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function onBookCreate(e) {
+async function onBookCreate(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const book = {
@@ -43,19 +46,18 @@ function onBookCreate(e) {
     price: Math.round(Math.random() * 1000),
   };
 
-  createBook(book)
-    .then(createdBook => {
-      const markup = templateBook(createdBook);
-      refs.bookListElem.insertAdjacentHTML('afterbegin', markup);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  try {
+    const createdBook = await createBook(book);
+    const markup = templateBook(createdBook);
+    refs.bookListElem.insertAdjacentHTML('afterbegin', markup);
+  } catch (err) {
+    console.log(err);
+  }
 
   e.target.reset();
 }
 
-function onBookReset(e) {
+async function onBookReset(e) {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -69,23 +71,22 @@ function onBookReset(e) {
     price: Math.round(Math.random() * 1000),
   };
 
-  resetBook(book)
-    .then(updatedBook => {
-      const markup = templateBook(updatedBook);
-      const bookElem = document.querySelector(`li[data-id="${book.id}"]`);
+  try {
+    const updatedBook = await resetBook(book);
+    const markup = templateBook(updatedBook);
+    const bookElem = document.querySelector(`li[data-id="${book.id}"]`);
+    bookElem.insertAdjacentHTML('afterend', markup);
+    bookElem.remove();
+  } catch (err) {
+    console.log(err);
+  }
 
-      bookElem.insertAdjacentHTML('afterend', markup);
-
-      bookElem.remove();
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  console.log('THE END');
 
   e.target.reset();
 }
 
-function onBookUpdate(e) {
+async function onBookUpdate(e) {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -99,24 +100,30 @@ function onBookUpdate(e) {
     price: Math.round(Math.random() * 1000),
   };
 
-  updateBook(book).then(updatedBook => {
+  try {
+    const updatedBook = await updateBook(book);
     const markup = templateBook(updatedBook);
     const bookElem = document.querySelector(`li[data-id="${book.id}"]`);
-
     bookElem.insertAdjacentHTML('afterend', markup);
-
     bookElem.remove();
-  });
+  } catch (err) {
+    console.log('error');
+  }
 
   e.target.reset();
 }
-function onBookDelete(e) {
+
+async function onBookDelete(e) {
   e.preventDefault();
   const id = e.target.elements.bookId.value;
-  deleteBook(id).then(() => {
+
+  try {
+    await deleteBook(id);
     const bookElem = document.querySelector(`li[data-id="${id}"]`);
     bookElem.remove();
-  });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 //!======================================================
