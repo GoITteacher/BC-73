@@ -5,6 +5,7 @@ import './modules/ipfinder';
 import './modules/pokemon';
 import './modules/instagram';
 import './modules/user';
+import Axios from 'axios';
 
 // ====================================
 
@@ -38,3 +39,28 @@ import './modules/user';
 // searchSuperhero('Hulk').then(res => {
 //   console.log(res);
 // });
+
+//!======================================================
+const axios = Axios.create({
+  baseURL: 'https://newsapi.org/v2',
+  headers: { 'X-Api-Key': 'c8747511a2c34730a83caaff4f3693e7' },
+  params: {
+    test: 'Hello',
+  },
+});
+
+async function getNews(query, page, perPage) {
+  const params = {
+    q: query,
+    page: page,
+    pageSize: perPage,
+  };
+  const headers = {
+    // url: 'Hello',
+  };
+
+  const res = await axios.get('/everything', { params, headers });
+  return res.data;
+}
+
+getNews('Tesla', 1, 10);
