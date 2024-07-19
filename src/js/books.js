@@ -13,6 +13,7 @@ const refs = {
   resetFormElem: document.querySelector('.js-reset-form'),
   deleteFormElem: document.querySelector('.js-delete-form'),
   bookListElem: document.querySelector('.js-article-list'),
+  loader: document.querySelector('.loader'),
 };
 
 //!======================================================
@@ -27,12 +28,15 @@ refs.deleteFormElem.addEventListener('submit', onBookDelete);
 
 async function onBooksLoad() {
   try {
+    // showLoader();
     const books = await getBooks();
     const markup = booksTemplate(books);
     refs.bookListElem.innerHTML = markup;
   } catch (err) {
     console.log(err);
   }
+
+  // hideLoader();
 }
 
 async function onBookCreate(e) {
@@ -47,6 +51,7 @@ async function onBookCreate(e) {
   };
 
   try {
+    showLoader();
     const createdBook = await createBook(book);
     const markup = templateBook(createdBook);
     refs.bookListElem.insertAdjacentHTML('afterbegin', markup);
@@ -54,6 +59,7 @@ async function onBookCreate(e) {
     console.log(err);
   }
 
+  hideLoader();
   e.target.reset();
 }
 
@@ -164,3 +170,12 @@ refs.bookListElem.addEventListener('click', e => {
   refs.resetFormElem.elements.bookId.value = id;
   refs.deleteFormElem.elements.bookId.value = id;
 });
+
+//!======================================================
+
+function showLoader() {
+  refs.loader.classList.remove('hidden');
+}
+function hideLoader() {
+  refs.loader.classList.add('hidden');
+}
