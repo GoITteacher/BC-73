@@ -11,72 +11,48 @@ const refs = {
   loadElem: document.querySelector('.js-loader'),
 };
 
-// ======================================
-let query;
-let page;
-let maxPage;
+//!======================================================
 
-refs.formElem.addEventListener('submit', onFormSubmit);
+let userValue = '';
+let currentPage = 1;
+let maxPage = 1;
+const pageSize = 10;
 
-// ======================================
+//!======================================================
 
-async function onFormSubmit(e) {
+refs.formElem.addEventListener('submit', async e => {
   e.preventDefault();
-  query = e.target.elements.query.value.trim();
-  page = 1;
 
-  if (!query) {
-    showError('Empty field');
-    return;
-  }
-
-  showLoader();
+  currentPage = 1;
+  userValue = e.target.elements.query.value.trim();
 
   try {
-    const data = await fetchArticles(query, page);
-    if (data.totalResults === 0) {
-      showError('Sorry!');
-    }
+    showLoader();
+    const data = await fetchArticles(userValue, currentPage);
     maxPage = data.total_pages;
+    const markup = articlesTemplate(data.articles);
+    refs.articleListElem.innerHTML = markup;
+  } catch {
+    maxPage = 0;
     refs.articleListElem.innerHTML = '';
-    renderArticles(data.articles);
-  } catch (err) {
-    showError(err);
   }
 
   hideLoader();
-  checkObserverStatus();
-  e.target.reset();
-}
+  updateStatusObserver();
+});
 
-async function onLoadMore() {
-  page += 1;
+async function loadMoreArticles() {
+  currentPage++;
   showLoader();
-  const data = await fetchArticles(query, page);
-  renderArticles(data.articles);
-  hideLoader();
-  checkObserverStatus();
-
-  scrollBy({
-    behavior: 'smooth',
-    top: 1000,
-  });
-}
-
-// ======================================
-function renderArticles(articles) {
-  const markup = articlesTemplate(articles);
+  const data = await fetchArticles(userValue, currentPage);
+  const markup = articlesTemplate(data.articles);
   refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+
+  hideLoader();
+  updateStatusObserver();
 }
 
-function observeTarget() {
-  console.log('observe');
-  observer.observe(refs.targetElem);
-}
-function unobserveTarget() {
-  console.log('unobserve');
-  observer.unobserve(refs.targetElem);
-}
+//!======================================================
 
 function showLoader() {
   refs.loadElem.classList.remove('hidden');
@@ -85,35 +61,24 @@ function hideLoader() {
   refs.loadElem.classList.add('hidden');
 }
 
-function showError(msg) {
-  iziToast.error({
-    title: 'Error',
-    message: msg,
-  });
-}
-
-function checkObserverStatus() {
-  if (page >= maxPage) {
-    unobserveTarget();
-    showError('Sorry! The End!');
+//!======================================================
+function updateStatusObserver() {
+  if (currentPage >= maxPage) {
+    console.log('Перестали слідкувати');
+    observer.unobserve(refs.targetElem);
   } else {
-    observeTarget();
+    console.log('Почали слідкувати');
+    observer.observe(refs.targetElem);
   }
 }
-// ========================================
 
 const options = {
-  root: document.querySelector('#scrollArea'),
-  rootMargin: '0px',
-  threshold: 1.0,
+  rootMargin: '3000px',
 };
 
-const callback = function (entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      onLoadMore();
-    }
-  });
-};
+const observer = new IntersectionObserver(entries => {
+  const entry = entries[0];
+  if (!entry.isIntersecting) return;
 
-const observer = new IntersectionObserver(callback, options);
+  loadMoreArticles();
+}, options);
